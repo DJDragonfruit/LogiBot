@@ -6,12 +6,19 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 # If modifying these scopes, delete the file token.json.
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # The ID and range of a sample spreadsheet.
 SPREADSHEET_ID = os.getenv("SPREADSHEET_ID")
 RANGE_NAME = "Stock!A2:B"
+print(f"Spreadsheet ID: {SPREADSHEET_ID}")
 
 creds = None
 
